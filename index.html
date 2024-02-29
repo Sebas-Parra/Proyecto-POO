@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disculpas</title>
+    <style>
+       .body {
+         background-color: aquamarine;
+         text-align: center;   
+       }
+       
+       .body_title{
+        color:coral;
+       }
+    
+       .body_img{
+        width: 60%;
+        border-radius: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+       }
+    
+       button {
+        padding: 15px 30px;/*Tamaño de los botones*/
+        font-size: 18px;/* tamaño del texto*/
+        background-color: blueviolet;
+       }
+    </style>
+</head>
+<body class="body">
+    <h1 class="body_title">¿Me perdonas mi amor?</h1>    
+    <img src="https://i.pinimg.com/originals/89/21/8a/89218a14f843af56dbd531704c2e5c2f.jpg" 
+    alt="foto" class="body_img">
+    <button id="yes">Si</button>
+    <button id="no">No</button>
+
+    <script>
+       const vutonSi = document.querySelector('#yes');
+       const vutonNo = document.querySelector('#no');
+       const phrases = [
+            "Como que no?",
+            "Estas segura?",
+            "Estas muy segura?",
+            "Ya no me amas?",
+            "Por que no??",
+            "boton equivocado",
+            "Segurísima??",
+            "Pero segura segura??"
+       ];
+
+       let currentPhraseIndex = 0;
+
+       const variable1 = () => {
+        alert('Te lo agradezco muchisimo mi amor');
+        alert('Que lindo!! Mi princesa hermosa!!');
+        alert('Una cancion especial para tu!!');
+        location.href = 'https://www.youtube.com/watch?v=aaVpo3m1hSQ';
+       };
+
+       const increaseButtonSize = () => {
+        const currentSize = parseFloat(window.getComputedStyle(vutonSi).fontSize);
+        const newSize = currentSize + 10.7;
+        vutonSi.style.fontSize = newSize + 'px';
+
+       }
+
+       vutonSi.addEventListener('click', variable1);
+       vutonNo.addEventListener('click',function(){
+        if(currentPhraseIndex== phrases.length -1){
+            currentPhraseIndex = 0;
+        }else{
+            currentPhraseIndex++;
+        }
+        vutonNo.textContent=phrases[currentPhraseIndex];
+        increaseButtonSize();
+       });
+    </script>
+</body>
+</html>
